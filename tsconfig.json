@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.mts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "js-interview-q&a-visualizer",
+    "reactjs-interview-q&a",
+    "next.js-interview-guide",
+    "typescript-interactive-trainer",
+    "node.js-&-express-interactive-interview-q&a",
+    "redux-masterclass-q&a-&-sandbox",
+    "zustand-masterclass",
+    "webpack-interview-visualizer",
+    "rest-api-interview-guide",
+    "websocket-q&a-study-guide",
+    "testing-interview-guide",
+    "web-accessibility-interview-q&a",
+    "system-design-q&a-explorer",
+    "practiceTS"
+  ]
+}
