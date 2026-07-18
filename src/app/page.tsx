@@ -465,7 +465,7 @@ export default function Home() {
               Welcome back to your upskilling console.
             </h2>
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans max-w-2xl">
-              Search across all interactive datasets of 13 modular subjects below. Browse through structural diagrams, run code sandbox engines, or test your skills with flashcards.
+              Search across all interactive datasets of {courses.length} modular subjects below. Browse through structural diagrams, run code sandbox engines, or test your skills with flashcards.
             </p>
 
             {/* Search Input */}
@@ -477,7 +477,7 @@ export default function Home() {
                 type="text"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                placeholder="Search concepts across React, Zustand, Node, WebSockets, a11y..."
+                placeholder={`Search concepts across ${courses.length} subjects (React, Node, AWS, GCP, WebSockets, a11y...)`}
                 className="block w-full pl-10 pr-4 py-3 bg-zinc-950 border border-zinc-800/80 rounded-xl text-sm placeholder-zinc-500 text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 focus:border-cyan-500 font-mono transition-all"
               />
             </div>
