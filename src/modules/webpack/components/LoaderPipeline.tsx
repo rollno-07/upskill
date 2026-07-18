@@ -128,7 +128,7 @@ export function LoaderPipeline() {
             <h4 className="text-lg font-bold tracking-tight text-white">Interactive Loader Transformation Pipeline</h4>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Loaders parse non-JS modules. They apply file-level pre-processors in a **right-to-left** sequence. Select a file type to run the transformation chain!
+            Loaders parse non-JS modules. They apply file-level pre-processors in a right-to-left sequence. Select a file type to run the transformation chain!
           </p>
         </div>
         <div className="flex bg-slate-950/40 p-1.5 rounded-xl border border-white/10 gap-1">

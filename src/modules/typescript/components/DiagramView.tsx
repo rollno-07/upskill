@@ -235,12 +235,12 @@ const UnionIntersectionDiagram: React.FC = () => {
         {mode === 'union' ? (
           <div>
             <span className="text-[#22d3ee] font-semibold block mb-1">Union (OR Logic):</span>
-            Accepts values belonging to Set A **OR** Set B. To perform exclusive properties of either set, you must use a type guard to narrow the type first.
+            Accepts values belonging to Set A OR Set B. To perform exclusive properties of either set, you must use a type guard to narrow the type first.
           </div>
         ) : (
           <div>
             <span className="text-[#22d3ee] font-semibold block mb-1">Intersection (AND Logic):</span>
-            Accepts objects that possess **ALL** properties of Set A **AND** Set B simultaneously. Perfect for combining multiple interface specifications.
+            Accepts objects that possess ALL properties of Set A AND Set B simultaneously. Perfect for combining multiple interface specifications.
           </div>
         )}
       </div>

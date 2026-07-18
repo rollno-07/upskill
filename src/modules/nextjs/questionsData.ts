@@ -65,7 +65,7 @@ export default async function Page() {
     difficulty: "Medium",
     question: "What rendering strategies does Next.js support?",
     answer: "Next.js supports Server-Side Rendering (SSR), Static Site Generation (SSG), Client-Side Rendering (CSR), and Incremental Static Regeneration (ISR).",
-    detailedExplanation: "Next.js allows you to mix and match these strategies on a per-route basis:\n• **Static Site Generation (SSG)**: HTML is built once at build time. Best for speed & CDN caching.\n• **Incremental Static Regeneration (ISR)**: Regenerates static pages in the background as requests come in, without rebuilding the whole site.\n• **Server-Side Rendering (SSR)**: Generates HTML on the server on *every request*. Best for highly dynamic user-specific data.\n• **Client-Side Rendering (CSR)**: Standard React flow where the server serves an empty shell and the browser fetches and renders data.",
+    detailedExplanation: "Next.js allows you to mix and match these strategies on a per-route basis:\n• Static Site Generation (SSG): HTML is built once at build time. Best for speed & CDN caching.\n• Incremental Static Regeneration (ISR): Regenerates static pages in the background as requests come in, without rebuilding the whole site.\n• Server-Side Rendering (SSR): Generates HTML on the server on *every request*. Best for highly dynamic user-specific data.\n• Client-Side Rendering (CSR): Standard React flow where the server serves an empty shell and the browser fetches and renders data.",
     codeSnippet: {
       language: "typescript",
       filename: "app/products/page.tsx",
@@ -106,7 +106,7 @@ async function getISRData() {
     difficulty: "Easy",
     question: "What is file-based routing in Next.js?",
     answer: "Routes are automatically configured based on the directory and file structure of your project, eliminating the need for packages like React Router.",
-    detailedExplanation: "In Next.js, files placed in specific folders become paths in your application. In the **Pages Router**, `pages/about.tsx` becomes `/about`. In the newer **App Router**, directories represent path segments, and a special `page.tsx` file defines the leaf. For example, `app/dashboard/settings/page.tsx` translates directly to the `/dashboard/settings` route.",
+    detailedExplanation: "In Next.js, files placed in specific folders become paths in your application. In the Pages Router, `pages/about.tsx` becomes `/about`. In the newer App Router, directories represent path segments, and a special `page.tsx` file defines the leaf. For example, `app/dashboard/settings/page.tsx` translates directly to the `/dashboard/settings` route.",
     codeSnippet: {
       language: "text",
       filename: "App Router Directory Structure",
@@ -138,7 +138,7 @@ async function getISRData() {
     difficulty: "Medium",
     question: "What is the difference between the Pages Router and App Router?",
     answer: "The Pages Router is Next.js's legacy system based on file-per-route, while the App Router is built on modern React Server Components, nested layouts, and simplified data-fetching.",
-    detailedExplanation: "• **Pages Router (`pages/`)**: Pages are client-side hydrated React components. Data fetching uses special functions like `getStaticProps` or `getServerSideProps` exported at the page level. No native component nesting.\n• **App Router (`app/`)**: Built to support React Server Components (RSC) by default. It supports nested layouts (`layout.tsx`), custom loading states (`loading.tsx`), and error boundaries (`error.tsx`) in any directory level. Data fetching is simplified directly using standard `async/await` fetch operations inside Server Components, resulting in less client-side JavaScript.",
+    detailedExplanation: "• Pages Router (`pages/`): Pages are client-side hydrated React components. Data fetching uses special functions like `getStaticProps` or `getServerSideProps` exported at the page level. No native component nesting.\n• App Router (`app/`): Built to support React Server Components (RSC) by default. It supports nested layouts (`layout.tsx`), custom loading states (`loading.tsx`), and error boundaries (`error.tsx`) in any directory level. Data fetching is simplified directly using standard `async/await` fetch operations inside Server Components, resulting in less client-side JavaScript.",
     codeSnippet: {
       language: "typescript",
       filename: "Pages (Legacy) vs App (Modern) Data Fetching",
@@ -220,7 +220,7 @@ export default function Home({ posts }) {
     difficulty: "Medium",
     question: "What is `getServerSideProps` (Pages Router)?",
     answer: "A function in the Pages Router used to fetch data and pre-render a page dynamically on the server for every incoming request (Server-Side Rendering).",
-    detailedExplanation: "Unlike `getStaticProps` which runs once during building, `getServerSideProps` executes on the server for **every single request** made to that route. Next.js blocks rendering until this function completes, generates the personalized HTML on-the-fly, and sends it to the browser. This is essential for pages containing live, user-specific data (like a user bank profile) that cannot be pre-built.",
+    detailedExplanation: "Unlike `getStaticProps` which runs once during building, `getServerSideProps` executes on the server for every single request made to that route. Next.js blocks rendering until this function completes, generates the personalized HTML on-the-fly, and sends it to the browser. This is essential for pages containing live, user-specific data (like a user bank profile) that cannot be pre-built.",
     codeSnippet: {
       language: "typescript",
       filename: "pages/profile.tsx (Pages Router)",
@@ -342,7 +342,7 @@ export default async function Page() {
     difficulty: "Medium",
     question: "How do you enable ISR?",
     answer: "In the Pages Router, return a `revalidate` property (in seconds) from `getStaticProps`. In the App Router, specify the `revalidate` configuration in your `fetch` calls or export a segment config constant.",
-    detailedExplanation: "ISR can be enabled globally or at a granular API fetch level:\n1. **App Router granular (preferred)**: Set `{ next: { revalidate: N } }` in individual `fetch()` requests.\n2. **App Router layout/page level**: Export a config constant `export const revalidate = 60;` in the file.\n3. **Pages Router page-level**: Return `revalidate: 60` from the `getStaticProps` return object.",
+    detailedExplanation: "ISR can be enabled globally or at a granular API fetch level:\n1. App Router granular (preferred): Set `{ next: { revalidate: N } }` in individual `fetch()` requests.\n2. App Router layout/page level: Export a config constant `export const revalidate = 60;` in the file.\n3. Pages Router page-level: Return `revalidate: 60` from the `getStaticProps` return object.",
     codeSnippet: {
       language: "typescript",
       filename: "app/news/page.tsx",
@@ -417,7 +417,7 @@ export default async function DashboardPage() {
     difficulty: "Medium",
     question: "What's the difference between Server and Client Components in the App Router?",
     answer: "Server Components are default components that run entirely on the server with no browser capability, whereas Client Components have full browser interactivity but are pre-rendered on the server first.",
-    detailedExplanation: "• **Server Components**: Run strictly on the server. No React hooks (`useState`, `useEffect`), no event listeners (`onClick`), and no browser-only APIs (`window`, `localStorage`).\n• **Client Components**: Defined with the `'use client'` directive at the top. They have full browser capabilities, can use all React hooks, event listeners, and browser APIs, but they still get pre-rendered to HTML on the server during the initial page load for speed.",
+    detailedExplanation: "• Server Components: Run strictly on the server. No React hooks (`useState`, `useEffect`), no event listeners (`onClick`), and no browser-only APIs (`window`, `localStorage`).\n• Client Components: Defined with the `'use client'` directive at the top. They have full browser capabilities, can use all React hooks, event listeners, and browser APIs, but they still get pre-rendered to HTML on the server during the initial page load for speed.",
     codeSnippet: {
       language: "typescript",
       filename: "Component Types Comparison",
@@ -575,7 +575,7 @@ export async function POST(request: Request) {
     difficulty: "Easy",
     question: "What is `next/image` and why use it over a plain `<img>`?",
     answer: "The `next/image` component (the Next.js Image component) wraps the standard HTML image element with automatic responsive resizing, WebP/AVIF format conversion, lazy loading, and prevention of layout shifts.",
-    detailedExplanation: "Images are often the primary cause of slow pages and layout shifts. The `<Image>` component automatically optimizes resources:\n• **Responsive Resizing**: Generates multiple image sizes and utilizes `srcset` under the hood.\n• **Modern Formats**: Automatically converts files to highly compressed formats like WebP or AVIF.\n• **Lazy Loading**: Delays image downloads until they enter the browser viewport.\n• **Layout Shift Prevention**: Requires explicit width and height dimensions to reserve spacing, protecting against Core Web Vital cls (Cumulative Layout Shift) penalties.",
+    detailedExplanation: "Images are often the primary cause of slow pages and layout shifts. The `<Image>` component automatically optimizes resources:\n• Responsive Resizing: Generates multiple image sizes and utilizes `srcset` under the hood.\n• Modern Formats: Automatically converts files to highly compressed formats like WebP or AVIF.\n• Lazy Loading: Delays image downloads until they enter the browser viewport.\n• Layout Shift Prevention: Requires explicit width and height dimensions to reserve spacing, protecting against Core Web Vital cls (Cumulative Layout Shift) penalties.",
     codeSnippet: {
       language: "typescript",
       filename: "components/optimized-banner.tsx",
@@ -737,7 +737,7 @@ export const config = {
     difficulty: "Medium",
     question: "What is the difference between `redirect` and `rewrite`?",
     answer: "A redirect changes the browser's URL and navigates the user to a new location, whereas a rewrite maps a source URL to a destination URL internally, serving different content without changing the visible URL.",
-    detailedExplanation: "• **Redirect (HTTP 301/302)**: The client browser receives an instruction to update its location. The URL in the address bar changes, and a new HTTP request is initiated. Used for permanent migrations, auth redirection, or old-link forwarding.\n• **Rewrite (Internal Masking)**: Act as a proxy. The server serves the content of the target destination, but the browser URL remains exactly the same. Useful for white-labeling, hiding backend routing structures, or creating user-friendly URL aliases.",
+    detailedExplanation: "• Redirect (HTTP 301/302): The client browser receives an instruction to update its location. The URL in the address bar changes, and a new HTTP request is initiated. Used for permanent migrations, auth redirection, or old-link forwarding.\n• Rewrite (Internal Masking): Act as a proxy. The server serves the content of the target destination, but the browser URL remains exactly the same. Useful for white-labeling, hiding backend routing structures, or creating user-friendly URL aliases.",
     codeSnippet: {
       language: "typescript",
       filename: "next.config.js (Rewrites and Redirects)",
@@ -822,7 +822,7 @@ export default async function ProductPage({ params }: PageParams) {
     difficulty: "Medium",
     question: "What is a catch-all route (`[...slug].tsx`)?",
     answer: "A catch-all route uses triple dots inside brackets `[...name]` to match any number of nested sub-path segments at that position, returning them as an array of params.",
-    detailedExplanation: "Standard dynamic segments `[id]` only match a single path level. If you need to support deeply nested paths like `/docs/getting-started/installation/yarn`, you use a catch-all route `app/docs/[...slug]/page.tsx`. Next.js resolves `/docs/getting-started/installation/yarn` by passing an array of strings: `['getting-started', 'installation', 'yarn']`. If you use double-bracket catch-all `[[...slug]]`, it becomes **optional** and matches `/docs` as well.",
+    detailedExplanation: "Standard dynamic segments `[id]` only match a single path level. If you need to support deeply nested paths like `/docs/getting-started/installation/yarn`, you use a catch-all route `app/docs/[...slug]/page.tsx`. Next.js resolves `/docs/getting-started/installation/yarn` by passing an array of strings: `['getting-started', 'installation', 'yarn']`. If you use double-bracket catch-all `[[...slug]]`, it becomes optional and matches `/docs` as well.",
     codeSnippet: {
       language: "typescript",
       filename: "app/docs/[[...slug]]/page.tsx",
@@ -861,7 +861,7 @@ export default async function DocsPage({ params }: DocsParams) {
     difficulty: "Easy",
     question: "How do you handle 404 pages in Next.js?",
     answer: "You customize 404 error responses by creating a dedicated file: `not-found.tsx` in the App Router, or `404.tsx` in the Pages Router.",
-    detailedExplanation: "Next.js provides built-in 404 handlers. If a URL does not match any route, it serves a default styled 404 screen. To customize this:\n• **App Router**: Create a `not-found.tsx` file in your root segment (or any nested segment). You can programmatically trigger this component from any other page by importing and invoking the `notFound()` utility function.\n• **Pages Router**: Create a `pages/404.tsx` component, which is automatically pre-rendered to a static HTML page during the build.",
+    detailedExplanation: "Next.js provides built-in 404 handlers. If a URL does not match any route, it serves a default styled 404 screen. To customize this:\n• App Router: Create a `not-found.tsx` file in your root segment (or any nested segment). You can programmatically trigger this component from any other page by importing and invoking the `notFound()` utility function.\n• Pages Router: Create a `pages/404.tsx` component, which is automatically pre-rendered to a static HTML page during the build.",
     codeSnippet: {
       language: "typescript",
       filename: "app/not-found.tsx (App Router Custom 404)",
@@ -1300,7 +1300,7 @@ export default async function PostsPage() {
     difficulty: "Hard",
     question: "How do you handle authentication in Next.js?",
     answer: "Authentication is typically managed using standard HTTP-only cookies verified within Middleware, and orchestrated by libraries like Auth.js (NextAuth.js).",
-    detailedExplanation: "Because Next.js runs on both the client and server, auth must be secure. A common approach involves:\n• **HTTP-only Cookies**: Upon successful login, the server sets a session cookie with the `httpOnly` and `Secure` attributes, preventing client-side scripts from reading it.\n• **Middleware Route Protection**: Next.js Middleware intercepts incoming requests, reads the cookie, validates the session, and redirects unauthenticated users before page rendering starts.\n• **Auth Libraries**: Auth.js simplifies this, managing OAuth providers, database adapters, and sessions seamlessly.",
+    detailedExplanation: "Because Next.js runs on both the client and server, auth must be secure. A common approach involves:\n• HTTP-only Cookies: Upon successful login, the server sets a session cookie with the `httpOnly` and `Secure` attributes, preventing client-side scripts from reading it.\n• Middleware Route Protection: Next.js Middleware intercepts incoming requests, reads the cookie, validates the session, and redirects unauthenticated users before page rendering starts.\n• Auth Libraries: Auth.js simplifies this, managing OAuth providers, database adapters, and sessions seamlessly.",
     codeSnippet: {
       language: "typescript",
       filename: "app/api/auth/login/route.ts",
@@ -1347,7 +1347,7 @@ export async function POST(request: Request) {
     difficulty: "Medium",
     question: "What is the difference between `pages/_app.tsx` and `pages/_document.tsx`?",
     answer: "In the Pages Router, `_app.tsx` initializes every page and manages global layout/providers, while `_document.tsx` customizes the raw HTML template structure itself.",
-    detailedExplanation: "• **`_app.tsx`**: Wraps all page components during routing. It is used to apply global CSS stylesheets, persist layout across page transitions, keep state between page navigations, and configure global state providers (like Theme, QueryClient, or Redux).\n• **`_document.tsx`**: Renders strictly on the server once per page load. It is used to customize the initial static HTML document shell, including adding attributes to `<html>` or `<body>` tags, and importing external fonts and stylesheets. It does not handle client-side rendering or React states.",
+    detailedExplanation: "• `_app.tsx`: Wraps all page components during routing. It is used to apply global CSS stylesheets, persist layout across page transitions, keep state between page navigations, and configure global state providers (like Theme, QueryClient, or Redux).\n• `_document.tsx`: Renders strictly on the server once per page load. It is used to customize the initial static HTML document shell, including adding attributes to `<html>` or `<body>` tags, and importing external fonts and stylesheets. It does not handle client-side rendering or React states.",
     codeSnippet: {
       language: "typescript",
       filename: "pages/_document.tsx (Customizing raw HTML)",
@@ -1387,7 +1387,7 @@ export default function Document() {
     difficulty: "Hard",
     question: "How would you optimize a Next.js app's Core Web Vitals?",
     answer: "You optimize Core Web Vitals by using `next/image` for images, using Server Components to minimize client JS, dynamic importing heavy scripts, prefetching key pages, and applying solid layout dimension constraints.",
-    detailedExplanation: "Core Web Vitals measure user experience:\n1. **LCP (Largest Contentful Paint)**: Speed up hero images with `next/image` and the `priority` tag.\n2. **CLS (Cumulative Layout Shift)**: Require height/width on images, reserve spacing for loading states, and use nested layouts.\n3. **INP (Interaction to Next Paint)**: Reduce browser JavaScript payloads by routing logic to React Server Components (RSCs) and using `next/dynamic` for heavy client features.",
+    detailedExplanation: "Core Web Vitals measure user experience:\n1. LCP (Largest Contentful Paint): Speed up hero images with `next/image` and the `priority` tag.\n2. CLS (Cumulative Layout Shift): Require height/width on images, reserve spacing for loading states, and use nested layouts.\n3. INP (Interaction to Next Paint): Reduce browser JavaScript payloads by routing logic to React Server Components (RSCs) and using `next/dynamic` for heavy client features.",
     codeSnippet: {
       language: "typescript",
       filename: "Core Web Vitals Checklist",
@@ -1421,7 +1421,7 @@ const HeavyChart = dynamic(() => import('@/components/HeavyChart'), {
     difficulty: "Medium",
     question: "What is the tradeoff of using SSR for every page vs static generation?",
     answer: "SSR guarantees real-time fresh data on every visit but introduces latency and hosting costs, while Static Generation offers instant CDN load speeds but can serve stale content.",
-    detailedExplanation: "• **Server-Side Rendering (SSR)**: Renders HTML dynamically for each visitor. It is ideal for real-time dashboard data or personalized bank balances. However, because pages are rendered on the fly, it increases Time-to-First-Byte (TTFB), puts strain on server resources, and cannot be cached entirely on static edge servers.\n• **Static Generation (SSG/ISR)**: Pre-builds pages. This delivers ultra-fast page speeds, simplifies hosting, and improves SEO. However, if data updates frequently, pages can display stale information until they are rebuilt or revalidated (ISR).",
+    detailedExplanation: "• Server-Side Rendering (SSR): Renders HTML dynamically for each visitor. It is ideal for real-time dashboard data or personalized bank balances. However, because pages are rendered on the fly, it increases Time-to-First-Byte (TTFB), puts strain on server resources, and cannot be cached entirely on static edge servers.\n• Static Generation (SSG/ISR): Pre-builds pages. This delivers ultra-fast page speeds, simplifies hosting, and improves SEO. However, if data updates frequently, pages can display stale information until they are rebuilt or revalidated (ISR).",
     codeSnippet: {
       language: "text",
       filename: "Comparison Metric Matrix",
@@ -1541,7 +1541,7 @@ export default async function BlogPost({ params }: { params: Promise<BlogParams>
     difficulty: "Hard",
     question: "How would you handle a WebSocket connection in a Next.js app?",
     answer: "WebSocket connections are initialized client-side within a Client Component (`'use client'`) since Server Components cannot maintain open browser socket feeds, typically pointing to an external Node.js socket server.",
-    detailedExplanation: "Because standard Next.js environments (like Vercel serverless functions) have strict timeout limits, they cannot host persistent WebSocket servers. To use WebSockets:\n1. **Client connection**: Connect to the socket server from a Client Component using `useEffect`.\n2. **WebSocket Server**: Host the server independently (e.g. using Socket.io or ws on a separate Node.js/Express server), or use a managed service (such as Pusher or Ably).\n3. **Alternative**: Run Next.js as a full-stack Node server using a custom `server.ts` setup that can bind both HTTP and WS handlers.",
+    detailedExplanation: "Because standard Next.js environments (like Vercel serverless functions) have strict timeout limits, they cannot host persistent WebSocket servers. To use WebSockets:\n1. Client connection: Connect to the socket server from a Client Component using `useEffect`.\n2. WebSocket Server: Host the server independently (e.g. using Socket.io or ws on a separate Node.js/Express server), or use a managed service (such as Pusher or Ably).\n3. Alternative: Run Next.js as a full-stack Node server using a custom `server.ts` setup that can bind both HTTP and WS handlers.",
     codeSnippet: {
       language: "typescript",
       filename: "components/LiveChat.tsx",

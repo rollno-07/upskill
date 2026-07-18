@@ -1179,7 +1179,7 @@ export const InteractiveDiagram: React.FC<DiagramProps> = ({ id }) => {
                 ⚡ Skip to Main Content (Press Enter)
               </button>
 
-              <p className="text-xs text-slate-500 font-medium">Click on the card below, then press **Tab** to expose the skip link:</p>
+              <p className="text-xs text-slate-500 font-medium">Click on the card below, then press Tab to expose the skip link:</p>
 
               <div className="border border-slate-200 rounded p-4 space-y-3 bg-slate-50">
                 <div className="flex justify-between items-center bg-white p-2 border rounded">

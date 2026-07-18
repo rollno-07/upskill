@@ -175,7 +175,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return <div className="space-y-2">{renderedBlocks}</div>;
 }
 
-// Function to handle custom inline markdown styling like **bold**, *italic*, `code`, and $latex$
+// Function to handle custom inline markdown styling like bold, *italic*, `code`, and $latex$
 function renderInlineFormatting(text: string): React.ReactNode {
   // Regex to split by bold, italic, code backticks, and inline math
   const tokenRegex = /(\*\*.*?\*\*|\*.*?\*|`.*?`|\$.*?\$)/g;
@@ -184,7 +184,7 @@ function renderInlineFormatting(text: string): React.ReactNode {
   if (parts.length === 1) return text;
 
   return parts.map((part, index) => {
-    if (part.startsWith('**') && part.endsWith('**')) {
+    if (part.startsWith('') && part.endsWith('')) {
       return <strong key={index} className="font-semibold text-gray-900 dark:text-white">{part.slice(2, -2)}</strong>;
     }
     if (part.startsWith('*') && part.endsWith('*')) {

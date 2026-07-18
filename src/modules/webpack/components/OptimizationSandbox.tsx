@@ -203,7 +203,7 @@ export function OptimizationSandbox() {
 
             {/* Informative footer */}
             <div className="bg-white/5 border border-white/5 p-3 rounded-lg text-[10px] text-slate-400 leading-relaxed text-left">
-              💡 **Tree Shaking Prerequisites**: Webpack requires **static ES6 Module syntax** (`import` & `export`) to crawl references before runtime execution. Standard CommonJS dynamic queries (`require()`) *cannot* be shaken. You must also declare `"sideEffects": false` in your `package.json`.
+              💡 Tree Shaking Prerequisites: Webpack requires static ES6 Module syntax (`import` & `export`) to crawl references before runtime execution. Standard CommonJS dynamic queries (`require()`) *cannot* be shaken. You must also declare `"sideEffects": false` in your `package.json`.
             </div>
           </div>
         </div>
@@ -351,7 +351,7 @@ export function OptimizationSandbox() {
 
             {/* Informational footer */}
             <div className="bg-white/5 border border-white/5 p-2.5 rounded-lg text-[10px] text-slate-400 leading-relaxed mt-2 text-left">
-              💡 **optimization.splitChunks** isolates modules from `node_modules` into a shared `vendor` bundle. It creates separate contenthashes so code refactoring only updates the active application chunks.
+              💡 optimization.splitChunks isolates modules from `node_modules` into a shared `vendor` bundle. It creates separate contenthashes so code refactoring only updates the active application chunks.
             </div>
           </div>
         </div>

@@ -122,7 +122,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, lat
   // Helper to parse bolds and inline backticks
   function processInlineStyles(text: string): string {
     let result = text;
-    // Replace **bold**
+    // Replace bold
     result = result.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-medium">$1</strong>');
     // Replace `code`
     result = result.replace(/`(.*?)`/g, '<code class="bg-[#242426] border border-[#2C2C2E] px-1.5 py-0.5 rounded text-xs font-mono text-[#22d3ee]">$1</code>');

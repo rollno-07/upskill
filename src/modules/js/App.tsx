@@ -124,7 +124,7 @@ export default function App() {
       const trimmed = line.trim();
       if (!trimmed) continue;
 
-      // Match "### Q1: Name" or "## 1. Name" or "# 1. Name" or "**1. Name**" or simple "1. Name"
+      // Match "### Q1: Name" or "## 1. Name" or "# 1. Name" or "1. Name" or simple "1. Name"
       const questionMatch = 
         trimmed.match(/^(?:###|##|#)?\s*(?:Q\d+[:.]?|\d+[\s.)])\s*(.*)/i) || 
         trimmed.match(/^\*\*(?:\d+[\s.)])\s*(.*)\*\*/);
