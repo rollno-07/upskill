@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { 
   Code, Layers, Cpu, Globe, Database, Shield, Workflow, 
-  Network, Activity, Terminal, Radio, Eye, Sparkles, 
+  Network, Activity, Terminal, Radio, Eye, Sparkles, Cloud, GitBranch, Server, FileText,
   Search, BookOpen, CheckCircle, Star, Award, ArrowRight, ExternalLink 
 } from 'lucide-react';
 
@@ -22,6 +22,10 @@ import { QUESTIONS as websocketQ } from '@/modules/websocket/data/questions';
 import { questionsData as testingQ } from '@/modules/testing/data/questions';
 import { questionsData as a11yQ } from '@/modules/a11y/data/questions';
 import { QUESTIONS_DATA as sysDesignQ } from '@/modules/system-design/data';
+import { awsQuestions as awsQ } from '@/modules/aws/data/awsQuestions';
+import { questionsData as cicdQ } from '@/modules/ci-cd/data/questions';
+import { questionsData as devopsQ } from '@/modules/devops/data/questions';
+import { QUESTIONS as mdQ } from '@/modules/md-visualizer/data/questions';
 
 interface Course {
   id: string;
@@ -192,6 +196,50 @@ export default function Home() {
       colorName: 'sysdesign',
       questions: sysDesignQ,
     },
+    {
+      id: 'aws',
+      name: 'AWS Cloud Architecture',
+      shortName: 'AWS Cloud',
+      description: 'EC2, S3, IAM, Serverless Lambda, VPC networking, and cloud security architectures.',
+      icon: <Cloud className="w-6 h-6 text-[#22d3ee]" />,
+      path: '/aws',
+      accent: '#22d3ee',
+      colorName: 'aws',
+      questions: awsQ || [],
+    },
+    {
+      id: 'ci-cd',
+      name: 'CI/CD Automation Pipelines',
+      shortName: 'CI/CD',
+      description: 'GitHub Actions, Jenkins, automated testing pipelines, and deployment strategies.',
+      icon: <GitBranch className="w-6 h-6 text-[#22d3ee]" />,
+      path: '/ci-cd',
+      accent: '#22d3ee',
+      colorName: 'cicd',
+      questions: cicdQ || [],
+    },
+    {
+      id: 'devops',
+      name: 'DevOps & Infrastructure',
+      shortName: 'DevOps',
+      description: 'Docker containers, Kubernetes clusters, Terraform IaC, and observability monitoring.',
+      icon: <Server className="w-6 h-6 text-[#22d3ee]" />,
+      path: '/devops',
+      accent: '#22d3ee',
+      colorName: 'devops',
+      questions: devopsQ || [],
+    },
+    {
+      id: 'md-visualizer',
+      name: 'Markdown Visual Explorer',
+      shortName: 'MD Explorer',
+      description: 'Interactive markdown parsing, syntax highlighting, and structural documentation.',
+      icon: <FileText className="w-6 h-6 text-[#22d3ee]" />,
+      path: '/md-visualizer',
+      accent: '#22d3ee',
+      colorName: 'mdvisualizer',
+      questions: mdQ || [],
+    },
   ], []);
 
   // Compute total questions
@@ -358,7 +406,7 @@ export default function Home() {
         <div className="flex items-center gap-4 sm:gap-6 bg-zinc-950/60 border border-zinc-900/60 p-3 px-5 rounded-xl backdrop-blur-md">
           <div className="text-center px-2">
             <div className="text-xs text-zinc-500 font-mono">COURSES</div>
-            <div className="text-lg font-bold text-white font-display">13</div>
+            <div className="text-lg font-bold text-white font-display">17</div>
           </div>
           <div className="h-8 w-px bg-zinc-800" />
           <div className="text-center px-2">
