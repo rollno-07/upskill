@@ -269,10 +269,10 @@ export default function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         {/* LEFT COLUMN: FILTERS & CARD LIST (4 Cols) */}
-        <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-[88px] h-auto lg:max-h-[calc(100vh-120px)] flex flex-col">
+        <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-[88px] h-auto flex flex-col">
           
           {/* Search and Advanced filter panel */}
-          <div className="bg-slate-900 border border-slate-800/80 rounded-3xl p-5 space-y-3.5 shadow-xl relative overflow-hidden">
+          <div className="bg-slate-900 border border-slate-800/80 rounded-3xl p-5 space-y-3.5 shadow-xl relative overflow-hidden shrink-0">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
             
             <div className="relative">
@@ -334,38 +334,38 @@ export default function App() {
           </div>
 
           {/* Core Mastery Bento Widget */}
-          <div className="bg-emerald-600 rounded-3xl p-5 text-white flex flex-col justify-between shadow-xl shadow-emerald-950/20 relative overflow-hidden">
+          <div className="bg-emerald-600 rounded-3xl p-5 text-white flex flex-col justify-between shadow-xl shadow-emerald-950/20 relative overflow-hidden shrink-0 min-h-[140px]">
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="flex justify-between items-start mb-4">
+            <div className="flex justify-between items-start mb-3">
               <div className="p-2 bg-white/20 rounded-xl">
                 <Check className="w-4 h-4 text-white" strokeWidth={3} />
               </div>
               <span className="text-[10px] font-mono font-black uppercase tracking-wider opacity-80">AWS Study Mastery</span>
             </div>
             <div>
-              <div className="text-3xl font-bold font-display mb-1">{completionPercent}% Complete</div>
-              <div className="w-full bg-black/20 h-1.5 rounded-full mb-2">
+              <div className="text-2xl sm:text-3xl font-bold font-display leading-tight mb-1.5 py-0.5">{completionPercent}% Complete</div>
+              <div className="w-full bg-black/20 h-2 rounded-full mb-2 overflow-hidden">
                 <div 
                   className="bg-white h-full rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all duration-500" 
                   style={{ width: `${completionPercent}%` }}
                 />
               </div>
             </div>
-            <p className="text-[10px] font-medium opacity-90 leading-relaxed font-sans">
+            <p className="text-[10px] font-medium opacity-90 leading-relaxed font-sans mt-1">
               You've mastered {progress.completedIds.length} of {questions.length} critical Solutions Architect concepts.
             </p>
           </div>
 
           {/* Categories Horizontal Scrolling Filter */}
-          <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
+          <div className="flex gap-2 overflow-x-auto py-2 shrink-0 scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent items-center min-h-[44px]">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => { setActiveCategory(cat); }}
-                className={`whitespace-nowrap px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider transition-all border ${
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider transition-all border shrink-0 inline-flex items-center justify-center leading-none ${
                   activeCategory === cat 
-                    ? 'bg-slate-100 text-slate-900 border-white' 
-                    : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
+                    ? 'bg-white text-slate-950 border-white font-extrabold shadow-md' 
+                    : 'bg-slate-900/90 text-slate-300 border-slate-750 hover:bg-slate-800 hover:text-white'
                 }`}
               >
                 {cat}
@@ -374,7 +374,7 @@ export default function App() {
           </div>
 
           {/* List Of Filtered Questions */}
-          <div className="flex-1 overflow-y-auto pr-1 space-y-2 h-[420px] lg:h-[calc(100vh-420px)] scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
+          <div className="flex-1 overflow-y-auto pr-1 space-y-2 min-h-[300px] max-h-[480px] lg:max-h-[calc(100vh-450px)] scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
             <div className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider px-1">
               Matching Cards ({filteredQuestions.length})
             </div>

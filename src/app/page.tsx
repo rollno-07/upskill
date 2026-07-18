@@ -26,6 +26,8 @@ import { awsQuestions as awsQ } from '@/modules/aws/data/awsQuestions';
 import { questionsData as cicdQ } from '@/modules/ci-cd/data/questions';
 import { questionsData as devopsQ } from '@/modules/devops/data/questions';
 import { QUESTIONS as mdQ } from '@/modules/md-visualizer/data/questions';
+import { allQuestions as gcpQ } from '@/modules/gcp/data/questions';
+import { ALL_QUESTIONS as htmlQ } from '@/modules/html/data/allQuestions';
 
 interface Course {
   id: string;
@@ -240,6 +242,28 @@ export default function Home() {
       colorName: 'mdvisualizer',
       questions: mdQ || [],
     },
+    {
+      id: 'gcp',
+      name: 'GCP Cloud Architecture',
+      shortName: 'GCP Cloud',
+      description: 'Compute Engine, GKE Kubernetes, BigQuery analytics, Cloud IAM, and Google Cloud VPC.',
+      icon: <Globe className="w-6 h-6 text-[#22d3ee]" />,
+      path: '/gcp',
+      accent: '#22d3ee',
+      colorName: 'gcp',
+      questions: gcpQ || [],
+    },
+    {
+      id: 'html',
+      name: 'HTML5 & Web Semantics',
+      shortName: 'HTML5',
+      description: 'Semantic elements, Web APIs, DOM manipulation, Accessibility ARIA, and Form validations.',
+      icon: <Code className="w-6 h-6 text-[#22d3ee]" />,
+      path: '/html',
+      accent: '#22d3ee',
+      colorName: 'html',
+      questions: htmlQ || [],
+    },
   ], []);
 
   // Compute total questions
@@ -406,7 +430,7 @@ export default function Home() {
         <div className="flex items-center gap-4 sm:gap-6 bg-zinc-950/60 border border-zinc-900/60 p-3 px-5 rounded-xl backdrop-blur-md">
           <div className="text-center px-2">
             <div className="text-xs text-zinc-500 font-mono">COURSES</div>
-            <div className="text-lg font-bold text-white font-display">17</div>
+            <div className="text-lg font-bold text-white font-display">19</div>
           </div>
           <div className="h-8 w-px bg-zinc-800" />
           <div className="text-center px-2">
