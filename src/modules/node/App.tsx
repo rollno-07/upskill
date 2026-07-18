@@ -278,10 +278,10 @@ export default function App() {
       </header>
 
       {/* WORKSPACE CONTAINER */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 h-[calc(100vh-80px)] overflow-hidden">
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0 lg:h-[calc(100vh-80px)] overflow-y-auto lg:overflow-hidden">
         
         {/* LEFT COLUMN: NAVIGATION & FILTER PANEL (4 COLS) */}
-        <section className="lg:col-span-4 flex flex-col gap-4 h-full overflow-hidden">
+        <section className="lg:col-span-4 flex flex-col gap-4 max-h-[400px] lg:max-h-none lg:h-full overflow-y-auto lg:overflow-hidden">
           
           {/* SEARCH & FILTER CONTROLS */}
           <div className="bg-[#18181b] p-4 rounded border border-[#27272a] space-y-3 shadow-xs">

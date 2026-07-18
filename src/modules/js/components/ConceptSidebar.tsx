@@ -61,7 +61,7 @@ export function ConceptSidebar({
   const scanIntegrity = ((completedQuestions.length / 100) * 100).toFixed(1);
 
   return (
-    <aside className="w-80 bg-[#0d0d10] border-r border-zinc-800 flex flex-col h-full overflow-hidden select-none">
+    <aside className="w-full lg:w-80 shrink-0 bg-[#0d0d10] border-b lg:border-b-0 lg:border-r border-zinc-800 flex flex-col h-auto max-h-[350px] lg:max-h-none lg:h-full overflow-hidden select-none">
       {/* Top Stats Board */}
       <div className="p-4 border-b border-zinc-800 bg-[#0a0a0b]/40">
         <div className="flex justify-between items-center mb-1">

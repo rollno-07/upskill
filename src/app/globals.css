@@ -27,48 +27,44 @@
   --foreground: #f4f4f5;
 }
 
-body {
+html, body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* Animations */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Code & Pre Overflows */
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.animate-spin-slow {
-  animation: spin-slow 25s linear infinite;
+img, svg, canvas, video {
+  max-width: 100%;
+  height: auto;
 }
 
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.35; }
-}
-
-.animate-pulse-subtle {
-  animation: pulse-subtle 4s ease-in-out infinite;
-}
-
-/* Custom Utilities for Glassmorphism */
+/* Glassmorphism Utilities */
 .glass-panel {
   background: rgba(15, 15, 20, 0.7);
   backdrop-filter: blur(12px);
@@ -87,4 +83,14 @@ body {
 .glass-card:hover {
   background: rgba(39, 39, 42, 0.55);
   border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile Media Queries */
+@media (max-width: 640px) {
+  .glass-panel {
+    padding: 1rem !important;
+  }
+  .glass-card {
+    padding: 1rem !important;
+  }
 }

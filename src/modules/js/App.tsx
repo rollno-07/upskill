@@ -221,12 +221,12 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-[#0a0a0b] text-zinc-300 font-sans overflow-hidden border-4 border-zinc-900 select-none">
+    <div className="flex flex-col min-h-screen lg:h-screen w-full bg-[#0a0a0b] text-zinc-300 font-sans overflow-y-auto lg:overflow-hidden select-none">
       
       {/* 1. Header Bar */}
-      <header className="h-16 flex items-center justify-between px-8 bg-[#0f0f12] border-b border-zinc-800 shadow-xl shrink-0">
+      <header className="h-auto py-3 min-h-16 flex flex-wrap items-center justify-between px-4 sm:px-8 bg-[#0f0f12] border-b border-zinc-800 shadow-xl shrink-0 gap-3">
         <div className="flex items-center gap-4">
-          <div className="w-8 h-8 bg-cyan-600 rounded flex items-center justify-center shadow-lg shadow-cyan-900/30">
+          <div className="w-8 h-8 bg-cyan-600 rounded flex items-center justify-center shadow-lg shadow-cyan-900/30 shrink-0">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
@@ -241,7 +241,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
           <div className="flex gap-2 items-center">
             <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
             <span className="text-[10px] uppercase tracking-widest font-bold text-zinc-400 hidden sm:inline">System Ready</span>
@@ -270,7 +270,7 @@ export default function App() {
       </header>
 
       {/* 2. Main Workspace Layout */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-col lg:flex-row flex-1 overflow-y-auto lg:overflow-hidden">
         
         {/* Concept Listing Sidebar */}
         <ConceptSidebar
